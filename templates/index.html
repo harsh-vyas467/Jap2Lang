@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
         select, input[type="file"] { margin-right: 1em; margin-bottom: 1em; }
         input[type="submit"] { padding: 0.5em 1em; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
         input[type="submit"]:hover { background-color: #0056b3; }
+        .checkbox-group { margin-top: 1em; }
     </style>
 </head>
 <body>
@@ -24,7 +25,16 @@
                 <option value="{{ lang_code }}">{{ lang_name }}</option>
             {% endfor %}
         </select>
+
         <input type="file" name="file" accept=".pdf">
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="download_json" name="download_json" value="yes">
+            <label for="download_json" style="display:inline; font-weight:normal;">
+                Also download JSON version
+            </label>
+        </div>
+
         <input type="submit" value="Translate PDF">
     </form>
 </body>
