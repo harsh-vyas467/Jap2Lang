@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language PDF Translator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        h1 { color: #333; }
+        form { margin-top: 1em; padding: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        label { display: block; margin-bottom: 0.5em; font-weight: bold; }
+        select, input[type="file"] { margin-right: 1em; margin-bottom: 1em; }
+        input[type="submit"] { padding: 0.5em 1em; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Japanese PDF to Multi-Language Translator</h1>
+    <p>Upload a Japanese instruction manual PDF and select a language to translate it into.</p>
+    <form action="/translate" method="post" enctype="multipart/form-data">
+        <label for="language-select">Choose a target language:</label>
+        <select name="language" id="language-select">
+            {% for lang_name, lang_code in languages.items() %}
+                <option value="{{ lang_code }}">{{ lang_name }}</option>
+            {% endfor %}
+        </select>
+        <input type="file" name="file" accept=".pdf">
+        <input type="submit" value="Translate PDF">
+    </form>
+</body>
+</html>
